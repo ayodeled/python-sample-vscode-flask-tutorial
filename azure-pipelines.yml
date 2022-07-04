@@ -37,3 +37,9 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    
+    - task: AzureWebAppContainer@1
+      inputs:
+        azureSubscription: 'Microsoft Azure Sponsorship(e27eb9fd-90f3-4118-952e-25090483dab3)'
+        appName: 'wakaoil3266'
+        containers: '$(containerRegistry)/$(imageRepository):$(tag)'
